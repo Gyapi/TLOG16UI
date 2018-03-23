@@ -1,1 +1,237 @@
-/* You can add global styles to this file, and also import other style files */
+/*AppComponent*/
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  background: #FFF;
+}
+
+div.main{
+  width: 1000px;
+  background: #f5f5f5;
+  min-height: 500px;
+  height: auto !important;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  margin: 0px auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  float: top;
+  overflow: auto !important;
+  padding-bottom: 5px !important;
+}
+
+.frame{
+  width: 990px;
+  background: #f5f5f5;
+  margin: 5px;
+  margin-top: 0px;
+  float: top;
+  padding-top: 0px;
+  border: none;
+}
+
+/*NavigationBarComponent*/
+
+  .navbar{
+    margin-bottom: 5px !important;
+  }
+
+.navbar-header{
+  cursor: default;
+}
+
+.nav{
+  cursor: pointer;
+}
+
+/*CalendarComponent*/
+  div.calendarMain{
+    float: left;
+    width: 990px;
+    background: #f5f5f5;
+    height: auto;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    margin: 0px auto;
+    padding: 0px;
+  }
+
+.form-control{
+  max-width: 81px;
+  padding-right: 10px;
+  margin-right: 0px;
+  float: left;
+}
+
+.pagination{
+  padding: 0px;
+  margin: 0px;
+  float: top;
+  display: inline-block;
+  width: 987px;
+}
+
+.pagination a {
+  float: left;
+  padding: 8px 16px;
+  max-width: 100px;
+  min-width: 67px;
+  margin: 0px;
+}
+
+.pagination a:hover {
+  cursor: pointer;
+}
+
+.month{
+  margin: 0px;
+  max-width: 987px;
+  height: auto;
+  border: 1px solid #f5f5f5;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+.stats{
+  margin: 0px;
+  margin-bottom: 10px;
+  float: right;
+  max-width: 987px;
+  max-height: 20px;
+  padding: 0px;
+}
+
+.lilStat{
+  float: right;
+  max-height: 10px;
+  text-align: right;
+  font-size: 10px;
+  margin-right: 10px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.dayHead{
+  margin: 0px;
+  text-align: center;
+  float: left;
+  max-width: 987px;
+  max-height: 20px;
+  padding: 0px;
+}
+
+.lilHead{
+  width: 140px;
+  text-align: center;
+  height: 20px;
+  margin: 0px;
+  float: left;
+  font-weight: bold;
+}
+
+.buttons{
+  float: left;
+  max-width: 987px;
+  padding-top: 10px;
+  background: #f5f5f5;
+  margin-top: 0px;
+}
+
+.line{
+  float: left;
+  width: 987px;
+  padding-left: 10px;
+  background: #f5f5f5;
+}
+
+.container{
+  height: 140px;
+  max-width: 131px;
+  background-color: #FFF;
+  text-align: center;
+  float: left;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  margin-right: 8px !important;
+  padding: 0px !important;
+  margin-bottom: 10px !important;
+}
+
+.day{
+  height: 40px;
+  width: 129px;
+  background-color: #FFF;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+  float: left;
+  font-size: 200%;
+}
+
+.inner{
+  padding-top: 10px;
+  float: left;
+}
+
+.disabled{
+  color: #f5f5f5;
+  background-color: #f5f5f5;
+}
+
+input.form-control{
+  margin: 2px 5px 3px 5px;
+  height: 20px;
+  text-align: center;
+  font-size: 8px;
+  float: left;
+  width: 50px;
+}
+
+.aBtn{
+  margin: 2px 5px 3px 0px;
+  height: 20px;
+  float: left;
+  width: 64px;
+  padding: 0px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.placeholder{
+  margin: 2px 5px 3px 0px;
+  height: 20px;
+  float: left;
+  width: 64px;
+  padding: 0px;
+  font-size: 10px;
+  text-align: center;
+}
+
+/*TableComponent*/
+  .mainTable{
+    max-width: 900px;
+  }
+
+.table{
+  max-width: 900px;
+}
+
+.hidden {
+  display: none !important;
+}
