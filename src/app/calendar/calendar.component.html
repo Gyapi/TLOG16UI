@@ -4,18 +4,18 @@
       <select id ='yearSelect' class="form-control" (change)="findMonth()">
       </select>
     </li>
-      <li id="month0" (click)="buildMonth(0)"><a>January</a></li>
-      <li id="month1" (click)="buildMonth(1)"><a>February</a></li>
-      <li id="month2" (click)="buildMonth(2)"><a>March</a></li>
-      <li id="month3" (click)="buildMonth(3)"><a>April</a></li>
-      <li id="month4" (click)="buildMonth(4)"><a>May</a></li>
-      <li id="month5" (click)="buildMonth(5)"><a>June</a></li>
-      <li id="month6" (click)="buildMonth(6)"><a>July</a></li>
-      <li id="month7" (click)="buildMonth(7)"><a>August</a></li>
-      <li id="month8" (click)="buildMonth(8)"><a>September</a></li>
-      <li id="month9" (click)="buildMonth(9)"><a>October</a></li>
-      <li id="month10" (click)="buildMonth(10)"><a>November</a></li>
-      <li id="month11" (click)="buildMonth(11)"><a>December</a></li>
+      <li id="month0" (click)="getMonthData(0)"><a>January</a></li>
+      <li id="month1" (click)="getMonthData(1)"><a>February</a></li>
+      <li id="month2" (click)="getMonthData(2)"><a>March</a></li>
+      <li id="month3" (click)="getMonthData(3)"><a>April</a></li>
+      <li id="month4" (click)="getMonthData(4)"><a>May</a></li>
+      <li id="month5" (click)="getMonthData(5)"><a>June</a></li>
+      <li id="month6" (click)="getMonthData(6)"><a>July</a></li>
+      <li id="month7" (click)="getMonthData(7)"><a>August</a></li>
+      <li id="month8" (click)="getMonthData(8)"><a>September</a></li>
+      <li id="month9" (click)="getMonthData(9)"><a>October</a></li>
+      <li id="month10" (click)="getMonthData(10)"><a>November</a></li>
+      <li id="month11" (click)="getMonthData(11)"><a>December</a></li>
   </ul>
   <div class="month">
     <div class="dayHead">
@@ -30,9 +30,9 @@
     <div id="days" class="buttons">
     </div>
     <div class="stats">
-      <div class="lilStat">Extra work hours: 0</div>
-      <div class="lilStat">All work hours: 0</div>
-      <div class="lilStat">Required work hours: 0</div>
+      <div class="lilStat">Extra work hours: <span id="extra" class="">{{extra}}</span></div>
+      <div class="lilStat">All work hours: <span id="all" class="">{{all}}</span></div>
+      <div class="lilStat">Required work hours: {{required}}</div>
     </div>
   </div>
 </div>

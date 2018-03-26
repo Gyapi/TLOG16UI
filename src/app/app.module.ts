@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { TableComponent } from './table/table.component';
-import { CalendarService } from './calendar.service';
+import { CalendarService } from './calendar/calendar.service';
 
 
 @NgModule({
