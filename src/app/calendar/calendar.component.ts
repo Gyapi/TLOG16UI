@@ -147,7 +147,7 @@ export class CalendarComponent implements OnInit {
     }
   }
 
-  static makeADiv(day, i, month, req, extra, sum): void{
+  makeADiv(day, i, month, req, extra, sum): void{
     let reqString = "", extraString = "", sumString = "", spanClass = "", extraClass = "";
     let buttonString = '<button type="button" class="aBtn" (click)="activateDay()" >Activate</button>';
 
