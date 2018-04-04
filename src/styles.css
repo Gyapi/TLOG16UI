@@ -146,15 +146,9 @@ div.main{
   float: left;
   max-width: 987px;
   padding-top: 10px;
-  background: #f5f5f5;
-  margin-top: 0px;
-}
-
-.line{
-  float: left;
-  width: 987px;
   padding-left: 10px;
   background: #f5f5f5;
+  margin-top: 0px;
 }
 
 .container{

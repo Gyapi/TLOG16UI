@@ -28,6 +28,7 @@
       <div class="lilHead">Saturday</div>
     </div>
     <div id="days" class="buttons">
+        <app-day  *ngFor="let day of daysOfMonth" [year]="actualYear" [month]="actualMonth" [day]=day></app-day>
     </div>
     <div class="stats">
       <div class="lilStat">Extra work hours: <span id="extra" class="">{{extra}}</span></div>

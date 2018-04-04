@@ -8,6 +8,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { TableComponent } from './table/table.component';
 import { CalendarService } from './calendar/calendar.service';
+import { DayComponent } from './calendar/day/day.component';
+import { DayService } from './calendar/day/day.service';
 
 
 @NgModule({
@@ -15,13 +17,14 @@ import { CalendarService } from './calendar/calendar.service';
     AppComponent,
     CalendarComponent,
     NavigationbarComponent,
-    TableComponent
+    TableComponent,
+    DayComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [CalendarService],
+  providers: [CalendarService, DayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
