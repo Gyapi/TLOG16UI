@@ -1,0 +1,11 @@
+<div id="{{ 'container' +  day }}" class="container">
+  <div class="day"><span>{{name}}</span></div>
+  <div class="inner" id="day">
+    <input id="{{ 'inReq' +  day }}" type="text" class="form-control" value="">
+    <button id="{{ 'btn' +  day }}" type="button" class="aBtn" (click)="dayBtnEvent">{{buttonLabel}}</button>
+    <input type="text" class="form-control" value="" disabled >
+    <p class="placeholder">{{sumString}}</p>
+    <input type="text" class="form-control" value="" disabled >
+    <p class="placeholder">{{extraString}}</p>
+  </div>
+</div>
