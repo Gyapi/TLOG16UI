@@ -2,12 +2,12 @@ import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navigationbar.component.html',
-  styleUrls: ['./navigationbar.component.css']
+  templateUrl: './navigationbar.component.html'
 })
 export class NavigationbarComponent implements OnInit {
 
   @Output() changeComponent = new EventEmitter<boolean>();
+  whoIsOnTop: boolean;
 
   constructor() { }
 
@@ -16,14 +16,12 @@ export class NavigationbarComponent implements OnInit {
   }
 
   changeComponentToCalendar() : void {
-    document.getElementById('litable').classList.remove('active')
-    document.getElementById('licalendar').classList.add('active');
+    this.whoIsOnTop = true;
     this.changeComponent.emit(true);
   }
 
   changeComponentToTable() : void {
-    document.getElementById('licalendar').classList.remove('active')
-    document.getElementById('litable').classList.add('active');
+    this.whoIsOnTop = false;
     this.changeComponent.emit(false);
   }
 

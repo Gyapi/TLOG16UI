@@ -2,20 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'TimeLogger';
+  whoIsOnTop : boolean;
 
   changeComponent(wichOne : boolean): void {
-    if (wichOne) {
-      document.getElementById('frameCalendar').classList.remove('hidden');
-      document.getElementById('frameTable').classList.add('hidden');
-    }
-    else {
-      document.getElementById('frameCalendar').classList.add('hidden');
-      document.getElementById('frameTable').classList.remove('hidden');
-    }
+    this.whoIsOnTop = wichOne;
   }
 }

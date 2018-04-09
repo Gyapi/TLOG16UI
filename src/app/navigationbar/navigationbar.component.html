@@ -4,12 +4,12 @@
       <a class="navbar-brand">TimeLogger</a>
     </div>
     <ul class="nav navbar-nav">
-      <li id="licalendar" (click)="changeComponentToCalendar()" ><a>Calendar</a></li>
-      <li id="litable" (click)="changeComponentToTable()" ><a>Table</a></li>
+      <li [ngClass]="{'active': whoIsOnTop === true}" (click)="changeComponentToCalendar()" ><a>Calendar</a></li>
+      <li [ngClass]="{'active': whoIsOnTop === false}"  (click)="changeComponentToTable()" ><a>Table</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>

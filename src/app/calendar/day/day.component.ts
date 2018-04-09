@@ -37,7 +37,7 @@ export class DayComponent implements OnInit {
       document.getElementById('inReq' + this.day).setAttribute('disabled', 'disabled');
       document.getElementById('btn' + this.day).setAttribute('disabled', 'disabled');
     } else {
-      this.getWorkDayData();
+      //this.getWorkDayData();
     }
   }
 

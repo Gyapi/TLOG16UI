@@ -1,39 +1,44 @@
-<div class="calendarMain">
-  <ul id="datePicker" class="pagination">
+<div class="calendarMain left">
+  <ul id="datePicker" class="pagination top">
     <li>
-      <select id ='yearSelect' class="form-control" (change)="findMonth()">
+      <select class="form-control left" (change)="findMonth($event.target.value)">
+        <option *ngFor="let yearOption of yearOptions"
+                [value]="yearOption"
+                [selected]="yearOption === actualYear ? true : null">
+          {{yearOption}}
+        </option>
       </select>
     </li>
-      <li id="month0" (click)="getMonthData(0)"><a>January</a></li>
-      <li id="month1" (click)="getMonthData(1)"><a>February</a></li>
-      <li id="month2" (click)="getMonthData(2)"><a>March</a></li>
-      <li id="month3" (click)="getMonthData(3)"><a>April</a></li>
-      <li id="month4" (click)="getMonthData(4)"><a>May</a></li>
-      <li id="month5" (click)="getMonthData(5)"><a>June</a></li>
-      <li id="month6" (click)="getMonthData(6)"><a>July</a></li>
-      <li id="month7" (click)="getMonthData(7)"><a>August</a></li>
-      <li id="month8" (click)="getMonthData(8)"><a>September</a></li>
-      <li id="month9" (click)="getMonthData(9)"><a>October</a></li>
-      <li id="month10" (click)="getMonthData(10)"><a>November</a></li>
-      <li id="month11" (click)="getMonthData(11)"><a>December</a></li>
+      <li [ngClass]="{'active': monthPicker === 0}" (click)="getMonthData(0)"><a>January</a></li>
+      <li [ngClass]="{'active': monthPicker === 1}" (click)="getMonthData(1)"><a>February</a></li>
+      <li [ngClass]="{'active': monthPicker === 2}" (click)="getMonthData(2)"><a>March</a></li>
+      <li [ngClass]="{'active': monthPicker === 3}" (click)="getMonthData(3)"><a>April</a></li>
+      <li [ngClass]="{'active': monthPicker === 4}" (click)="getMonthData(4)"><a>May</a></li>
+      <li [ngClass]="{'active': monthPicker === 5}" (click)="getMonthData(5)"><a>June</a></li>
+      <li [ngClass]="{'active': monthPicker === 6}" (click)="getMonthData(6)"><a>July</a></li>
+      <li [ngClass]="{'active': monthPicker === 7}" (click)="getMonthData(7)"><a>August</a></li>
+      <li [ngClass]="{'active': monthPicker === 8}" (click)="getMonthData(8)"><a>September</a></li>
+      <li [ngClass]="{'active': monthPicker === 9}" (click)="getMonthData(9)"><a>October</a></li>
+      <li [ngClass]="{'active': monthPicker === 10}" (click)="getMonthData(10)"><a>November</a></li>
+      <li [ngClass]="{'active': monthPicker === 11}" (click)="getMonthData(11)"><a>December</a></li>
   </ul>
   <div class="month">
-    <div class="dayHead">
-      <div class="lilHead">Sunday</div>
-      <div class="lilHead">Monday</div>
-      <div class="lilHead">Tuesday</div>
-      <div class="lilHead">Wednesday</div>
-      <div class="lilHead">Thursday</div>
-      <div class="lilHead">Friday</div>
-      <div class="lilHead">Saturday</div>
+    <div class="dayHead left">
+      <div class="lilHead left">Sunday</div>
+      <div class="lilHead left">Monday</div>
+      <div class="lilHead left">Tuesday</div>
+      <div class="lilHead left">Wednesday</div>
+      <div class="lilHead left">Thursday</div>
+      <div class="lilHead left">Friday</div>
+      <div class="lilHead left">Saturday</div>
     </div>
-    <div id="days" class="buttons">
+    <div id="days" class="buttons left">
         <app-day  *ngFor="let day of daysOfMonth" [year]="actualYear" [month]="actualMonth" [day]=day></app-day>
     </div>
-    <div class="stats">
-      <div class="lilStat">Extra work hours: <span id="extra" class="">{{extra}}</span></div>
-      <div class="lilStat">All work hours: <span id="all" class="">{{all}}</span></div>
-      <div class="lilStat">Required work hours: {{required}}</div>
+    <div class="stats right">
+      <div class="lilStat right">Extra work hours: <span [ngClass]="{'red': extra < 0, green: extra > 0}">{{extra}}</span></div>
+      <div class="lilStat right">All work hours: <span [ngClass]="{'red': extra < 0, green: extra > 0}">{{all}}</span></div>
+      <div class="lilStat right">Required work hours: {{required}}</div>
     </div>
   </div>
 </div>
