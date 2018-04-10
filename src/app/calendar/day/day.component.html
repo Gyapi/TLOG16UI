@@ -1,11 +1,12 @@
-<div id="{{ 'container' +  day }}" class="container">
-  <div class="day"><span>{{name}}</span></div>
-  <div class="inner" id="day">
-    <input id="{{ 'inReq' +  day }}" type="text" class="form-control" value="">
-    <button id="{{ 'btn' +  day }}" type="button" class="aBtn" (click)="dayBtnEvent">{{buttonLabel}}</button>
-    <input type="text" class="form-control" value="" disabled >
-    <p class="placeholder">{{sumString}}</p>
-    <input type="text" class="form-control" value="" disabled >
-    <p class="placeholder">{{extraString}}</p>
+<div class="container left" [ngClass]="{'disabled': day < 1}">
+  <div class="day left"><span>{{name}}</span></div>
+  <div class="inner left" [ngClass]="{'has-error': enoughWork == true}">
+    <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{required}}">
+    <button type="button" class="aBtn left" [ngClass]="{'hidden': day < 1}" (click)="dayBtnEvent()" >
+            {{buttonLabel}}</button>
+    <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{sum}}" disabled>
+    <p class="placeholder left">{{sumString}}</p>
+    <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{extra}}" disabled>
+    <p class="placeholder left">{{extraString}}</p>
   </div>
 </div>

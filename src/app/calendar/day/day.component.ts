@@ -3,8 +3,7 @@ import { DayService } from './day.service'
 
 @Component({
   selector: 'app-day',
-  templateUrl: './day.component.html',
-  styleUrls: ['./day.component.css']
+  templateUrl: './day.component.html'
 })
 export class DayComponent implements OnInit {
 
@@ -12,32 +11,30 @@ export class DayComponent implements OnInit {
   @Input() month: number;
   @Input() year: number;
   name : string;
-  buttonLabel: string = "Activate";
-  sumString: string = "Work Sum";
-  extraString: string = "Extra Work";
-  newOrNot: boolean;
+  buttonLabel: string;
+  sumString: string;
+  extraString: string;
+  required: number;
+  sum: number;
+  extra: number;
+  enoughWork: boolean;
 
   constructor(private dayServer: DayService) {
   }
 
   ngOnInit() {
-    if (this.day < 1 ){
-      this.name = "";
-      this.buttonLabel = "";
-      this.sumString = "";
-      this.extraString = "";
-    } else {
+    if (this.day > 0 ){
       this.name = this.day + "";
+      this.buttonLabel = "Activate";
+      this.sumString = "Work Sum";
+      this.extraString = "Extra Work";
+      this.enoughWork = false;
     }
   }
 
-  ngAfterViewInit(){
-    if (this.day < 1 ){
-      document.getElementById('container' + this.day).classList.add("disabled");
-      document.getElementById('inReq' + this.day).setAttribute('disabled', 'disabled');
-      document.getElementById('btn' + this.day).setAttribute('disabled', 'disabled');
-    } else {
-      //this.getWorkDayData();
+  ngOnChanges() {
+    if (this.day > 0) {
+      this.getWorkDayData();
     }
   }
 
@@ -47,18 +44,32 @@ export class DayComponent implements OnInit {
 
     this.dayServer.getDay(this.year, gaveMonth, this.day).subscribe(
       dayData => {
-        document.getElementById('inReq' + this.day).setAttribute('value', dayData.Required);
-        console.log(dayData);
+        this.dayProcess(dayData);
       },
     error => {
-      this.newOrNot = false;
     })
 
   }
 
+  dayProcess(dayData: any){
+    this.buttonLabel = "Update";
+    this.required = dayData.Required;
+    this.extra = dayData.Extra;
+    this.sum = dayData.Sum;
+    if (this.extra < 0) { this.enoughWork = true; }
+  }
 
   dayBtnEvent(){
-    console.log("anyád");
+    if (this.buttonLabel == "Activate"){
+      //Weekend Check
+      //Confirmation (Weekend)
+      //JSON Creation
+      //Sending it to day.service
+    }
+    if (this.buttonLabel == "Update"){
+      //JSON Creation
+      //Sending it to day.service
+    }
   }
 
 }

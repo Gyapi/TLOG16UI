@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  whoIsOnTop : boolean;
+  private whoIsOnTop : boolean;
 
-  changeComponent(wichOne : boolean): void {
+  public changeComponent(wichOne : boolean): void {
     this.whoIsOnTop = wichOne;
   }
 }

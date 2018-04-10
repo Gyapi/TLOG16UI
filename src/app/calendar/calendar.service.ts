@@ -9,16 +9,10 @@ export class CalendarService {
   constructor(private http: HttpClient) {
   }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json'
-    })
-  };
-
-  urlString : string = 'http://localhost:8080/timelogger/workmonths/';
+  private urlString : string = 'http://localhost:8080/timelogger/workmonths/';
 
 
-  public  getMonth(year: number, month: number) : Observable<any> {
+  public getMonth(year: number, month: number) : Observable<any> {
 
     let url = this.urlString + year + '/' + month + '/';
 

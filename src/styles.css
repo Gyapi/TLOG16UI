@@ -162,7 +162,6 @@ div.main{
   max-width: 131px;
   background-color: #FFF;
   text-align: center;
-  float: left;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
@@ -180,13 +179,11 @@ div.main{
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-  float: left;
   font-size: 200%;
 }
 
 .inner{
   padding-top: 10px;
-  float: left;
 }
 
 .disabled{
@@ -199,14 +196,12 @@ input.form-control{
   height: 20px;
   text-align: center;
   font-size: 8px;
-  float: left;
   width: 50px;
 }
 
 .aBtn{
   margin: 2px 5px 3px 0px;
   height: 20px;
-  float: left;
   width: 64px;
   padding: 0px;
   font-size: 10px;
@@ -216,7 +211,6 @@ input.form-control{
 .placeholder{
   margin: 2px 5px 3px 0px;
   height: 20px;
-  float: left;
   width: 64px;
   padding: 0px;
   font-size: 10px;
