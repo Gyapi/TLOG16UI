@@ -5,8 +5,8 @@
     <button type="button" class="aBtn left" [ngClass]="{'hidden': day < 1}" (click)="dayBtnEvent()" >
             {{buttonLabel}}</button>
     <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{sum}}" disabled>
-    <p class="placeholder left">{{sumString}}</p>
+    <p class="placeholder left" [ngClass]="{'hidden': day < 1}" >Work Sum</p>
     <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{extra}}" disabled>
-    <p class="placeholder left">{{extraString}}</p>
+    <p class="placeholder left" [ngClass]="{'hidden': day < 1}" >Extra Work</p>
   </div>
 </div>

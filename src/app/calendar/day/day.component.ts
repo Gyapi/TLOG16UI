@@ -1,5 +1,7 @@
 import {Component, Input, OnInit } from '@angular/core';
-import { DayService } from './day.service'
+import { DayService } from './day.service';
+import { MatDialog } from '@angular/material';
+import { WeekendDialogComponent } from './weekend-dialog/weekend-dialog.component';
 
 @Component({
   selector: 'app-day',
@@ -7,41 +9,40 @@ import { DayService } from './day.service'
 })
 export class DayComponent implements OnInit {
 
-  @Input() day: number;
-  @Input() month: number;
-  @Input() year: number;
-  name : string;
-  buttonLabel: string;
-  sumString: string;
-  extraString: string;
-  required: number;
-  sum: number;
-  extra: number;
-  enoughWork: boolean;
+  @Input() public day: number;
+  @Input() public month: number;
+  @Input() public year: number;
+  public name : string;
+  public buttonLabel: string;
+  public required: number;
+  public sum: number;
+  public extra: number;
+  public enoughWork: boolean;
 
-  constructor(private dayServer: DayService) {
+  constructor(private dayServer: DayService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
-    if (this.day > 0 ){
+    this.buttonLabel = "Activate";
+    this.enoughWork = false;
+    if (this.day > 0){
       this.name = this.day + "";
-      this.buttonLabel = "Activate";
-      this.sumString = "Work Sum";
-      this.extraString = "Extra Work";
-      this.enoughWork = false;
     }
   }
 
   ngOnChanges() {
+    this.buttonLabel = "Activate";
+    this.required = null;
+    this.sum = null;
+    this.extra = null;
     if (this.day > 0) {
       this.getWorkDayData();
     }
   }
 
-  getWorkDayData(){
+  private getWorkDayData(){
 
     let gaveMonth = this.month + 1;
-
     this.dayServer.getDay(this.year, gaveMonth, this.day).subscribe(
       dayData => {
         this.dayProcess(dayData);
@@ -51,7 +52,7 @@ export class DayComponent implements OnInit {
 
   }
 
-  dayProcess(dayData: any){
+  private dayProcess(dayData: any){
     this.buttonLabel = "Update";
     this.required = dayData.Required;
     this.extra = dayData.Extra;
@@ -59,10 +60,24 @@ export class DayComponent implements OnInit {
     if (this.extra < 0) { this.enoughWork = true; }
   }
 
-  dayBtnEvent(){
+  public dayBtnEvent(){
+    console.log(this.year + "." + this.month + "." + this.day);
     if (this.buttonLabel == "Activate"){
       //Weekend Check
-      //Confirmation (Weekend)
+      //let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      //Saturday: 6, Sunday: 0
+      let isWeekend = new Date(this.year, this.month, this.day).getDay();
+      if (isWeekend == 0 || isWeekend == 6){
+        let dialogRef = this.dialog.open(WeekendDialogComponent, {
+          height: '200px',
+          width: '300px',
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(`Dialog result: ${result}`);
+        });
+        //Confirmation (Weekend)
+      }
       //JSON Creation
       //Sending it to day.service
     }

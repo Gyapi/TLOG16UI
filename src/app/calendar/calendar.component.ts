@@ -10,15 +10,15 @@ export class CalendarComponent implements OnInit {
   constructor(private calendarServer: CalendarService) {
   }
 
-  actualYear: number;
-  yearOptions: Array<number>;
-  lastYearIndex: number = 0;
-  monthPicker : number;
-  required: number = 0;
-  extra: number = 0;
-  all: number = 0;
-  daysOfMonth: Array<number>; //min 28 max 37
-  actualMonth: number;
+  public actualYear: number;
+  public yearOptions: Array<number>;
+  private lastYearIndex: number = 0;
+  public monthPicker : number;
+  public required: number = 0;
+  public extra: number = 0;
+  public all: number = 0;
+  public daysOfMonth: Array<number>; //min 28 max 37
+  public actualMonth: number;
 
 
   ngOnInit() {
@@ -36,12 +36,12 @@ export class CalendarComponent implements OnInit {
     this.getMonthData(thisMonth);
   }
 
-  findMonth(selectedYear) {
+  public findMonth(selectedYear) {
     this.actualYear = parseInt(selectedYear, 10);
     this.getMonthData(this.monthPicker);
   }
 
-  getMonthData(thisMonth: number){
+  public getMonthData(thisMonth: number){
     this.monthPicker = thisMonth;
 
     let gaveMonth = thisMonth + 1;
@@ -57,7 +57,7 @@ export class CalendarComponent implements OnInit {
      )
   }
 
-  buildMonth(month: number, monthData: any){
+  private buildMonth(month: number, monthData: any){
     let monthLength: number = new Date(this.actualYear, month + 1, 0).getDate();
     let firstDayOfMonth = new Date(this.actualYear, month, 1).getDay();
     let startIndex = 0 - (firstDayOfMonth - 1);

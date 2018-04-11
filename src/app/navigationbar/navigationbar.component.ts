@@ -6,8 +6,8 @@ import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 })
 export class NavigationbarComponent implements OnInit {
 
-  @Output() changeComponent = new EventEmitter<boolean>();
-  private whoIsOnTop: boolean;
+  @Output() public changeComponent = new EventEmitter<boolean>();
+  public whoIsOnTop: boolean;
 
   constructor() { }
 
@@ -15,12 +15,12 @@ export class NavigationbarComponent implements OnInit {
     this.changeComponentToCalendar();
   }
 
-  private changeComponentToCalendar() : void {
+  public changeComponentToCalendar() : void {
     this.whoIsOnTop = true;
     this.changeComponent.emit(true);
   }
 
-  private changeComponentToTable() : void {
+  public changeComponentToTable() : void {
     this.whoIsOnTop = false;
     this.changeComponent.emit(false);
   }
