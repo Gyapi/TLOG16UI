@@ -1,7 +1,7 @@
 <div class="calendarMain left">
   <ul id="datePicker" class="pagination top">
     <li>
-      <select class="form-control left" (change)="findMonth($event.target.value)">
+      <select class="form-control left" (change)="findMonth($event)">
         <option *ngFor="let yearOption of yearOptions"
                 [value]="yearOption"
                 [selected]="yearOption === actualYear ? true : null">

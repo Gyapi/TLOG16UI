@@ -14,6 +14,7 @@ export class DayComponent implements OnInit {
   @Input() public year: number;
   public name : string;
   public buttonLabel: string;
+  private daySubscription;
   public required: number;
   public sum: number;
   public extra: number;
@@ -40,51 +41,70 @@ export class DayComponent implements OnInit {
     }
   }
 
-  private getWorkDayData(){
+  private getWorkDayData() {
 
-    let gaveMonth = this.month + 1;
-    this.dayServer.getDay(this.year, gaveMonth, this.day).subscribe(
-      dayData => {
-        this.dayProcess(dayData);
-      },
-    error => {
-    })
-
+    let today = new Date();
+    if (today.getDate() >= this.day && today.getMonth() >= this.month) {
+      let gaveMonth = this.month + 1;
+      this.daySubscription = this.dayServer.getDay(this.year, gaveMonth, this.day).subscribe(
+            dayData => {
+              this.dayProcess(dayData);
+            },
+            error => {
+            });
+    }
   }
 
   private dayProcess(dayData: any){
-    this.buttonLabel = "Update";
+    this.buttonLabel = "Active";
     this.required = dayData.Required;
     this.extra = dayData.Extra;
     this.sum = dayData.Sum;
     if (this.extra < 0) { this.enoughWork = true; }
   }
 
+  public inputType(input: any){
+    this.required =  parseInt(input.target.value, 10);
+  }
+
   public dayBtnEvent(){
-    console.log(this.year + "." + this.month + "." + this.day);
+
     if (this.buttonLabel == "Activate"){
-      //Weekend Check
-      //let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-      //Saturday: 6, Sunday: 0
       let isWeekend = new Date(this.year, this.month, this.day).getDay();
       if (isWeekend == 0 || isWeekend == 6){
-        let dialogRef = this.dialog.open(WeekendDialogComponent, {
-          height: '200px',
-          width: '300px',
-        });
+        let dialogRef = this.dialog.open(WeekendDialogComponent);
 
         dialogRef.afterClosed().subscribe(result => {
-          console.log(`Dialog result: ${result}`);
+          if (result == true){
+            this.activateDay(true);
+          }
         });
-        //Confirmation (Weekend)
+      } else {
+        this.activateDay(false);
       }
-      //JSON Creation
-      //Sending it to day.service
-    }
-    if (this.buttonLabel == "Update"){
-      //JSON Creation
-      //Sending it to day.service
     }
   }
 
+  public activateDay(isWeekend: boolean){
+    let sentJSONString;
+    let isWeekendString = "";
+    let requiredString = "";
+    let monthString = this.month + 1;
+
+    if (isWeekend){
+      isWeekendString = ', "weekEnd": true';
+    }
+    if (this.required != null || this.required > 0){
+      requiredString = ', "requiredHours": ' + this.required;
+    }
+    sentJSONString = '{"year": ' + this.year + ', "month": ' + monthString + ', "day": '+ this.day +
+          requiredString + isWeekendString + '}';
+    this.dayServer.addWorkDay(sentJSONString).subscribe(json => {
+          this.daySubscription.unsubscribe();
+        },
+        error => {
+        }
+    );
+    this.getWorkDayData();
+  }
 }

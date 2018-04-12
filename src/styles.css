@@ -1,3 +1,4 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 /*All Components*/
 
 .top {
@@ -18,6 +19,10 @@
 
 .green {
   color: green;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /*AppComponent*/
@@ -224,8 +229,4 @@ input.form-control{
 
 .table{
   max-width: 900px;
-}
-
-.hidden {
-  display: none !important;
 }

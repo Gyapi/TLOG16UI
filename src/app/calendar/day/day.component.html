@@ -1,9 +1,10 @@
 <div class="container left" [ngClass]="{'disabled': day < 1}">
   <div class="day left"><span>{{name}}</span></div>
   <div class="inner left" [ngClass]="{'has-error': enoughWork == true}">
-    <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{required}}">
-    <button type="button" class="aBtn left" [ngClass]="{'hidden': day < 1}" (click)="dayBtnEvent()" >
-            {{buttonLabel}}</button>
+    <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{required}}"
+           (keyup)="inputType($event)" [attr.disabled]="buttonLabel === 'Active' ? true : null">
+    <button type="button" class="aBtn left" [ngClass]="{'hidden': day < 1}" (click)="dayBtnEvent()"
+            [attr.disabled]="buttonLabel === 'Active' ? true : null">{{buttonLabel}}</button>
     <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{sum}}" disabled>
     <p class="placeholder left" [ngClass]="{'hidden': day < 1}" >Work Sum</p>
     <input type="text" class="form-control left" [ngClass]="{'hidden': day < 1}" value="{{extra}}" disabled>

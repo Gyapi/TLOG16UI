@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule  } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { WeekendDialogComponent } from './calendar/day/weekend-dialog/weekend-di
     BrowserModule,
     HttpClientModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [CalendarService, DayService],
   bootstrap: [AppComponent],

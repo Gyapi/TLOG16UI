@@ -8,13 +8,13 @@ export class DayService {
 
   constructor(private http: HttpClient) { }
 
-  httpOptions = {
+  private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
     })
   };
 
-  urlString : string = 'http://localhost:8080/timelogger/workmonths/';
+  private urlString : string = 'http://localhost:8080/timelogger/workmonths/';
 
 
   public getDay(year: number, month: number, day: number) : Observable<any> {
@@ -24,7 +24,7 @@ export class DayService {
   }
 
   public addWorkDay(newDay : JSON){
-    return this.http.post('http://localhost:8080/timelogger/workmonths/workdays', newDay, this.httpOptions);
+    return this.http.post<JSON>('http://localhost:8080/timelogger/workmonths/workdays', newDay, this.httpOptions);
   }
 
 }

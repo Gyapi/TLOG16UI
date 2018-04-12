@@ -36,8 +36,8 @@ export class CalendarComponent implements OnInit {
     this.getMonthData(thisMonth);
   }
 
-  public findMonth(selectedYear) {
-    this.actualYear = parseInt(selectedYear, 10);
+  public findMonth(selectedYear: any) {
+    this.actualYear = parseInt(selectedYear.target.value, 10);
     this.getMonthData(this.monthPicker);
   }
 
@@ -77,5 +77,4 @@ export class CalendarComponent implements OnInit {
       k++;
     }
   }
-
 }
