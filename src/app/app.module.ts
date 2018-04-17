@@ -14,6 +14,8 @@ import { CalendarService } from './calendar/calendar.service';
 import { DayComponent } from './calendar/day/day.component';
 import { DayService } from './calendar/day/day.service';
 import { WeekendDialogComponent } from './calendar/day/weekend-dialog/weekend-dialog.component';
+import { DayTableComponent } from './table/day-table/day-table.component';
+import { TableService } from './table/table.service';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { WeekendDialogComponent } from './calendar/day/weekend-dialog/weekend-di
     NavigationbarComponent,
     TableComponent,
     DayComponent,
-    WeekendDialogComponent
+    WeekendDialogComponent,
+    DayTableComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { WeekendDialogComponent } from './calendar/day/weekend-dialog/weekend-di
     BrowserAnimationsModule,
     MatButtonModule
   ],
-  providers: [CalendarService, DayService],
+  providers: [CalendarService, DayService, TableService],
   bootstrap: [AppComponent],
   entryComponents:[ WeekendDialogComponent ]
 })

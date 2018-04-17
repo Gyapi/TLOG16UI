@@ -14,9 +14,9 @@ export class CalendarComponent implements OnInit {
   public yearOptions: Array<number>;
   private lastYearIndex: number = 0;
   public monthPicker : number;
-  public required: number = 0;
-  public extra: number = 0;
-  public all: number = 0;
+  public required: number;
+  public extra: number;
+  public all: number;
   public daysOfMonth: Array<number>; //min 28 max 37
   public actualMonth: number;
 
@@ -43,6 +43,9 @@ export class CalendarComponent implements OnInit {
 
   public getMonthData(thisMonth: number){
     this.monthPicker = thisMonth;
+    this.required = 0;
+    this.extra = 0;
+    this.all = 0;
 
     let gaveMonth = thisMonth + 1;
     this.calendarServer.getMonth(this.actualYear, gaveMonth).subscribe(

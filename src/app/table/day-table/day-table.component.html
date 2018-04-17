@@ -1,0 +1,36 @@
+<div class="mainTable">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th colspan="7">{{actualDate}}</th>
+    </tr>
+    <tr>
+      <th colspan="2">Required work: {{required}} h</th>
+      <th colspan="2">All work: {{all}} h</th>
+      <th colspan="1">Extra work: <span [ngClass]="{'red' : extra < 0}">{{extra}}</span> h</th>
+      <th colspan="2"></th>
+    </tr>
+    <tr>
+      <th>Task ID</th>
+      <th>Comment</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Lenght</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of taskArray" [class]="classChooser(task)">
+      <td>{{task.ID}}</td>
+      <td>{{task.Comment}}</td>
+      <td>{{task.StartTime}}</td>
+      <td>{{task.EndTime}}</td>
+      <td *ngIf="task.MinPerTask > 0" >{{task.MinPerTask}} minutes</td>
+      <td *ngIf="task.MinPerTask == null"></td>
+      <td class="tdbtn" align="center"><button mat-raised-button class="tdButton" >Modify</button></td>
+      <td align="center"><button mat-raised-button class="tdButton" ></button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
